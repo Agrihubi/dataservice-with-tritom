@@ -1,0 +1,45 @@
+services:
+  # Tritom connector that pushes data requests to the web server      
+  tritom_connector:
+    container_name: tritom_connector
+    image:                  # Tritom connector image
+    environment:
+      - TRITOM_CONNECTOR_MESSAGE_TRANSFER-TYPE=PUSH     # PUSH or PULL mode
+      - TRITOM_CONNECTOR_MESSAGE_PUSH-URL=http://127.0.0.1:8081/webhook   # Port that nginx proxy listens to, see config_folder/nginx.conf
+      - TRITOM_CONNECTOR_MESSAGE_POLLING-INTERVAL=2000      # Or some other time interval in ms
+    network_mode: "host"
+
+  # Web server that receives and sends data
+  web_server:
+    container_name: web_server
+    image: web_server:main
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    environment:
+      - TRITOM_CONNECTOR_API_URL=http://127.0.0.1:8080/messages    # Port that tritom_connector listens to, by default 8080
+      - TRITOM_CONNECTOR_API_KEY=/run/secrets/tritom_connector_api_key
+      - TRITOM_APPLICATION_NAME=
+      - TRITOM_DATASET_REQUEST_INBOUND=       # Dataset name of data request in Tritom
+      - TRITOM_DATASET_NAME_OUTBOUND=         # Dataset name of data response in Tritom
+      - DATA_FILE=data/Test_Data_Product.json
+    network_mode: "host"
+  
+  # HTTP/2 proxy
+  h2proxy:
+    container_name: h2proxy
+    image: nginx
+    volumes:
+      - ./config_folder/nginx.conf:/etc/nginx/conf.d/default.conf
+    network_mode: "host"
+
+  # # Optional second Tritom connector of another Tritom application
+  # tritom_connector_data_requester:
+  #   container_name: tritom_connector_data_requester
+  #   image: <NAME OF CONNECTOR IMAGE>:main    # Fill this in
+  #   ports:
+  #     - "8888:8080"
+
+secrets:
+  tritom_connector_api_key:
+    file: .secrets/tritom_connector_api_key.txt

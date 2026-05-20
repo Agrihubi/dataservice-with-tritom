@@ -1,0 +1,8 @@
+fastapi>=0.111.0
+docker>=7.1.0
+httpx[http2]>=0.27.0
+hypercorn>=0.16.0
+pycurl>=7.45.3
+requests>=2.31.0
+ipykernel>=6.29.4
+python-dotenv>=1.0.1

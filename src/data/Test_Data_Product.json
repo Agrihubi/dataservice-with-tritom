@@ -1,0 +1,183 @@
+{
+  "readme": "This data product contains a SustainabilityConsultation dataset for agricultural field parcels.\nNumber of crops: 1.\n\nThe JSON structure is:\n- readme: Description of the data product and its contents.\n- metadata: Extracted parcel and consultation metadata, including boundaries.\n- data: Full structured JSON-LD payload for the consultation.\n\nIntended for use in sustainability assessments, LCA calculations, and agricultural data analysis.\nThe dataset includes parcel metadata, crop information, operations, and soil analysis.",
+  "metadata": {
+    "consultation": {
+      "identifier": "kasvulohkodata_169-04118-26_A_2021",
+      "name": "Päätila 169053216",
+      "nationalID": "169053216",
+      "consultationDate": "2026-03-13T12:13:03Z"
+    },
+    "parcels": [
+      {
+        "identifier": "169-04118-26",
+        "name": "RVII",
+        "parcelNumber": 26,
+        "parentIdentifier": "0",
+        "phosphateClass": "2",
+        "soilType": 0,
+        "hasArea": 16.92,
+        "boundary": "",
+        "boundaries": {
+          "area": 16.92,
+          "unit": "hectares",
+          "geometry": null
+        }
+      },
+      {
+        "identifier": "5115",
+        "name": "A  ",
+        "parcelNumber": 5115,
+        "parentIdentifier": "169-04118-26",
+        "phosphateClass": "2",
+        "soilType": 0,
+        "hasArea": 10.65,
+        "boundary": "",
+        "boundaries": {
+          "area": 10.65,
+          "unit": "hectares",
+          "geometry": null
+        }
+      }
+    ]
+  },
+  "data": {
+    "@id": "urn:SustainabilityConsultation:kasvulohkodata_169-04118-26_A_2021",
+    "type": "SustainabilityConsultation",
+    "dateModified": "2026-03-13T12:13:03Z",
+    "rScriptVersion": "",
+    "identifier": "kasvulohkodata_169-04118-26_A_2021",
+    "isDashboardPublic": false,
+    "isScenarioAnalysis": false,
+    "isAccessibleToFarmer": false,
+    "name": "Päätila 169053216",
+    "nationalID": "169053216",
+    "hasStartDatetime": "2026-03-13T12:13:03Z",
+    "accountingSoftware": "",
+    "otherAccountingSoftware": "",
+    "cropRegistrySoftware": "",
+    "otherCropRegistrySoftware": "",
+    "consultationDate": "2026-03-13T12:13:03Z",
+    "notes": null,
+    "hasCropProductionData": {
+      "@id": "urn:CropProduction:kasvulohkodata_169-04118-26_A_2021",
+      "type": [
+        "CropProduction_Cycle"
+      ],
+      "calculateCarbonStorage": false,
+      "hasAgriParcel": [
+        {
+          "@id": "urn:ngsi-ld:FieldParcel:169-04118-26_2021",
+          "identifier": "169-04118-26",
+          "parcelNumber": 26,
+          "name": "RVII",
+          "parentIdentifier": "0",
+          "phosphateClass": "2",
+          "soilType": 0,
+          "hasArea": 16.92,
+          "type": [
+            "Parcel_Site"
+          ]
+        },
+        {
+          "@id": "urn:ngsi-ld:FieldParcel:5115_169-04118-26_2021",
+          "identifier": "5115",
+          "parcelNumber": 5115,
+          "name": "A  ",
+          "parentIdentifier": "169-04118-26",
+          "phosphateClass": "2",
+          "soilType": 0,
+          "hasArea": 10.65,
+          "type": [
+            "Parcel_Site"
+          ]
+        }
+      ],
+      "hasSoilAnalysis": [],
+      "hasAgriCrop": [
+        {
+          "@id": "urn:ngsi-ld:Genotype:169-04118-2651152021",
+          "identifier": "59  ",
+          "name": "Oat",
+          "cultivarName": "Oat",
+          "type": [
+            "Crop_Product"
+          ],
+          "cloverPercent": null,
+          "cropInformation": null,
+          "isBio": false,
+          "variety": "Niklas",
+          "dryMaterialPercent": null,
+          "soilType": 0,
+          "phosphateClass": 2,
+          "hasOperation": [
+            {
+              "@id": "urn:ngsi-ld:PlantingEvent:169-04118-26_5115_20252021",
+              "type": [
+                "Operation_Practice"
+              ],
+              "consumedFuel": {
+                "numericValue": 48.99,
+                "unit": "L"
+              },
+              "parcelIdentifier": "5115",
+              "operationName": "Planting"
+            },
+            {
+              "@id": "urn:ngsi-ld:HarvestEvent:169-04118-26_5115_1000_2021",
+              "type": [
+                "Operation_Practice"
+              ],
+              "consumedFuel": {
+                "numericValue": 127.8,
+                "unit": "L"
+              },
+              "parcelIdentifier": "5115",
+              "operationName": "Harvest"
+            },
+            {
+              "@id": "urn:ngsi-ld:TillageEvent:169-04118-26_5115_2010_2021",
+              "type": [
+                "Operation_Practice"
+              ],
+              "consumedFuel": {
+                "numericValue": 10.65,
+                "unit": "L"
+              },
+              "parcelIdentifier": "5115",
+              "operationName": "Sowing tillage"
+            },
+            {
+              "@id": "urn:ngsi-ld:PesticideApplication:169-04118-26_5115_2055_2021",
+              "type": [
+                "CropProtectionOperation_Practice"
+              ],
+              "consumedFuel": {
+                "numericValue": 0,
+                "unit": "L"
+              },
+              "productName": "Biathlon 4D",
+              "hasActiveIngredientConcentration": {
+                "numericValue": 0,
+                "unit": "g/L"
+              },
+              "identifier": "urn:ngsi-ld:PesticideApplication:169-04118-26_5115_2055_2021"
+            }
+          ],
+          "hasFertilizationOperation": [
+            {
+              "@id": "urn:ngsi-ld:FertilizerApplication:169-04118-26_5115_2043_2021",
+              "fertilization_date": "1-6-2021",
+              "n_in_applied_fertilizer": 26.8,
+              "type": [
+                "FertilizationOperation_Practice"
+              ],
+              "productName": "YaraBela Selenium Supplement (27-0-1 + Mg+B+Se 25 g)"
+            }
+          ]
+        }
+      ],
+      "notes": null,
+      "cropsRemarks": null
+    }
+  }
+}
