@@ -2,6 +2,8 @@
 
 This is a dockerized web app that responds to data requests by sending static data. Data requests and datasets are sent via Tritom demo data intermediation service.
 
+This repository assumes a Linux environment. Running this project on macOS, Windows (without WSL), or other operating systems is not natively supported.
+
 This repository was published by the Datatalouskasvattamo project.
 
 ## Overview of data transfer via Tritom
@@ -166,7 +168,7 @@ Use curl in command prompt to send a message to *tritom_connector_data_requester
 curl --http2 --connect-timeout 10 --max-time 10 \
  -H "ClientApiKey: <TRITOM API KEY OF tritom_connector_data_requester>" \
  -H "Content-Type: application/json" -X POST http://127.0.0.1:8888/messages \
- -d '{"originServiceId": "<DATA REQUESTING APPLICATION B>", "recipientServiceId": "<DATA SHARING APPLICATION A>", "dataset": "<OUTBOUND DATASET OF THE REQUESTING APPLICATION>", "body": {}}'
+ -d '{"originServiceId": "<DATA REQUESTING APPLICATION B>", "dataset": "<OUTBOUND DATASET OF THE REQUESTING APPLICATION>", "body": {}}'
 ```
 
 ## Receive data
